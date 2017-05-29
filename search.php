@@ -38,7 +38,7 @@
 						<label id='searchbar-label'>
 							SEARCH
 						</label>
-						<input name='location' id='searchbar-input' list='' placeholder="Enter park name or suburb" onkeyup="searchInputKey()" autocomplete='off'/>
+						<input name='location' id='searchbar-input' placeholder="Enter park name or suburb" onkeyup="searchInputKey()" autocomplete='off'/>
 						<button type='submit' id='searchbar-button'>
 						<i class='fa fa-search'></i>
 						</button>

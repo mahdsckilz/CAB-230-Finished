@@ -14,7 +14,7 @@ pageSetup(true, false, true, "Ian Maskell"); ?>
 		<div class='resultsbar-outer'>
 			<div class='resultsbar-container'>
 				<div>
-					<table id='result-table' class='result-table' value='All Locations'>				
+					<table id='result-table' class='result-table'>				
 						<tr id='result-table-header'>
 							<th id='table-col-suburb'>Suburb</th>
 							<th id='table-col-address'>Name</th>

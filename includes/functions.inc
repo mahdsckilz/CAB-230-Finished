@@ -118,15 +118,15 @@ function setNavbar(){
 		echo "<datalist id='datalist'>";
 		for ($i = 0; $i < count($suburbs); $i++){
 			$suburbs[$i] = ucwords(strtolower($suburbs[$i]));
-			echo "<option value='$suburbs[$i]'>";
+			echo "<option value='{$suburbs[$i]}'>";
 		}
 		for ($i = 0; $i < count($names); $i++){
 			$names[$i] = ucwords(strtolower($names[$i]));
-			echo "<option value='$names[$i]'>";
+			$names[$i] = str_replace("'", "&#39;", $names[$i]);
+		echo "<option value='{$names[$i]}'>";
 		}		
-		echo "</datalist>";		
+		echo "</datalist>";	
 	}
-
 	
 // Retrieves details on the selected park and binds it to the currentPark variable for the item.php page
 	function sqlGetPark(){
@@ -280,11 +280,11 @@ function setNavbar(){
 		
 		for ($i = 0; $i < count($parklist); $i++){	
 			echo"
+				<tr class='result-table-row' onclick='document.forms[$i + 1].submit()' style='cursor:pointer'>
 				<form id='$i' method='post' action='item.php'>
 				<input name='parkId' value='{$parklist[$i]['parkId']}' hidden>
 				<input name='location' value='$location' hidden>
 				<input name='starratingValue' value='$starratingValue}' hidden>
-				<tr class='result-table-row' onclick='document.forms[$i + 1].submit()' style='cursor:pointer'>
 					<td>",
 						$parklist[$i]['Suburb'],
 					"	
@@ -293,10 +293,10 @@ function setNavbar(){
 							$parklist[$i]['Name'],
 					"</td>
 					<td>
-						<image class='result-stars' src='images/{$parklist[$i]['Stars']}stars.png'/>
+						<img class='result-stars' src='images/{$parklist[$i]['Stars']}stars.png'/>
 					</td>
-				</tr>
-				</form>";
+				</form>
+				</tr>";
 		};
 	}	
 	
@@ -330,8 +330,8 @@ function setNavbar(){
 						<div itemprop='itemReviewed' hidden>{$reviewId}</div> 
 						<div class='review-author' itemprop='author'> Review by: {$reviewer['userN']} </div>
 						<div class='review-text' itemprop='reviewBody'>{$reviewList[$i]['text']} </div>
-						<div id='review-star-container' itemprop='reviewRating'>
-							<image id='review-star' src='images/{$itemStar}stars.png' alt='Star'/>
+						<div class='review-star-container' itemprop='reviewRating'>
+							<img class='review-star' src='images/{$itemStar}stars.png' alt='Star'/>
 						</div>
 					</div>
 				";

@@ -7,7 +7,7 @@
 <script type="text/javascript" src="js/script.js"></script>
 <?php itemPage(); ?>
 	<main>
-		<section id='section1'>
+		<div id='section1'>
 		<?php require "./includes/partials/navbar.inc"; ?>
 		<?php require "./includes/partials/postReview.inc"; ?>
 			<div id='logo-results-container'>	
@@ -34,7 +34,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
 		<script type="text/javascript" src="js/script.js"></script>
 		<script type='text/javascript'>
 			var parklist = <?php echo json_encode($currentPark) ?>;
