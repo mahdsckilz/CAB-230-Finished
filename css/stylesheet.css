@@ -1,6 +1,6 @@
 body {
 	margin: 0px 0px 0px 0px;
-		min-width: 1200px;
+		min-width: 1024px;
 }
 
 a {
@@ -86,6 +86,13 @@ a {
 	transition: background-color .2s ease-in-out, height .2s ease-in-out, width .2s ease-in-out, margin-left .2s ease-in-out, line-height .2s ease-in-out, margin-top .2s ease-in-out;
 	cursor: pointer;
 	user-select: none;
+}
+
+.signOut:hover{
+	background-color: rgba(255,255,255,255);
+	height: 50px;
+	width: 120px;
+	margin-top: 5px;
 }
 
 #leftBtn{

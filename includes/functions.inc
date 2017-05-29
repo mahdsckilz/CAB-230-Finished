@@ -131,16 +131,21 @@ function setNavbar(){
 // Retrieves details on the selected park and binds it to the currentPark variable for the item.php page
 	function sqlGetPark(){
 		global $database, $location, $suburbs, $parkId, $currentPark;
-		$currentPark = [];
-		$sql = "SELECT * FROM parks WHERE parkId = :parkId";
-
-		$stmt = $database->prepare($sql);
-		$stmt->bindParam(":parkId", $parkId);
-		$stmt->execute();
 		
-		if ($stmt->rowCount() > 0){
-			$currentPark = $stmt->fetchAll();
-		}	
+		try {
+			$currentPark = [];
+			$sql = "SELECT * FROM parks WHERE parkId = :parkId";
+			$stmt = $database->prepare($sql);
+			$stmt->bindParam(":parkId", $parkId);
+			$stmt->execute();
+			
+			if ($stmt->rowCount() > 0){
+				$currentPark = $stmt->fetchAll();
+			}	
+		}
+		catch (PDOException $e){
+			echo "Error: " . $e->getMessage();
+		}
 	}
 
 
@@ -318,12 +323,14 @@ function setNavbar(){
 			
 			for ($i = 0; $i < count($reviewList); $i++){
 				$reviewerId = $reviewList[$i]['userid'];
+				$reviewId = $reviewList[$i]['reviewid'];
 				$itemStar = $reviewList[$i]['rating'];
 				$reviewer = sqlGetReviewUser($reviewerId);
 				echo "
-					<div class='review' itemprop='review'>
-						<div class='review-author' itemprop='reviewer'> Review by: {$reviewer['userN']} </div>
-						<div class='review-text'>{$reviewList[$i]['text']} </div>
+					<div class='review' itemscope itemtype='http://schema.org/Review'>
+						<div itemprop='itemReviewed' hidden>{$reviewId}</div> 
+						<div class='review-author' itemprop='author'> Review by: {$reviewer['userN']} </div>
+						<div class='review-text' itemprop='reviewBody'>{$reviewList[$i]['text']} </div>
 						<div id='review-star-container' itemprop='reviewRating'>
 							<image id='review-star' src='images/{$itemStar}stars.png'></image>
 						</div>
