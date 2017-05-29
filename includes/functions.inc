@@ -35,11 +35,11 @@ function pageSetup($searchBool, $resultsBool, $regBool, $author){
 function setNavbar(){
 	global $searchBox, $resultsBox, $location, $starratingValue;
 	if ($searchBox){
-		echo "<a href='search.php' class='registration' id='leftBtn'> << Search </a>";
+		echo "<a href='search.php' class='registration' id='leftBtn2'> &lt;&lt; Search </a>";
 	}
 	if ($resultsBox){
 		echo "
-		<div class='registration' id='rightBtn' onclick='resultsRedirect()'> << Results </div>
+		<div class='registration' id='rightBtn2' onclick='resultsRedirect()'> &lt;&lt; Results </div>
 		<form id='results-nav-form' action='results.php' method='post'>	
 			<input name='location' value='$location' hidden />
 			<input id='starValue' name='starValue' value='$starratingValue' hidden />
@@ -62,7 +62,7 @@ function setNavbar(){
 		echo " <form action='search.php' method='post'>";
 		echo " <button type='submit' name='logout' value='true' class='signOut' id='signOutBtn'> ";
 		echo "Sign Out";
-		echo "</a>";
+		echo "</button>";
 		echo "</form>";
 	}
 	
@@ -319,8 +319,7 @@ function setNavbar(){
 	function reviewListPopulate(){
 		global $currentPark;
 		$reviewList = sqlGetReviews();
-		if(count($reviewList) > 0){
-			
+		if(count($reviewList) > 0){		
 			for ($i = 0; $i < count($reviewList); $i++){
 				$reviewerId = $reviewList[$i]['userid'];
 				$reviewId = $reviewList[$i]['reviewid'];
@@ -332,7 +331,7 @@ function setNavbar(){
 						<div class='review-author' itemprop='author'> Review by: {$reviewer['userN']} </div>
 						<div class='review-text' itemprop='reviewBody'>{$reviewList[$i]['text']} </div>
 						<div id='review-star-container' itemprop='reviewRating'>
-							<image id='review-star' src='images/{$itemStar}stars.png'></image>
+							<image id='review-star' src='images/{$itemStar}stars.png' alt='Star'/>
 						</div>
 					</div>
 				";

@@ -41,4 +41,5 @@
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL5jfMCAYpKVqezrKCIuTjb7LueNhpjgk&callback=createMap"></script>
 	</main>
+	
 <?php require "./includes/partials/footer.inc"; ?>
