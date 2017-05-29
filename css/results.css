@@ -1,0 +1,131 @@
+#logo-results-container{
+	position: relative;
+	height:75px;
+	margin-top: -20px;
+}
+
+#logo-results{
+	position: absolute;
+	height: 75px;
+	width: 225px;
+	background-repeat: no-repeat;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#results-title{
+	text-align: center;
+	line-height: 18px;
+	position: absolute;
+	background-color: black;
+	width: 472px;
+	height: 30px;
+	margin-top: 10px;
+	color: white;
+	left: 50%;
+	transform: translateX(-50%);
+	font: bold 18px arial, sans-serif;
+	border: #666 6px solid;
+	border-radius: 8px;
+}
+
+#results-title div{
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.resultsbar-outer{
+	position: absolute;
+	margin-top: 80px;
+	height: 400px;
+	width: 897px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.resultsbar-container{
+	display: inline-block;
+	width: 467px;
+	border: #666 10px solid;
+	background-color: #666;
+	border-radius: 8px;
+	box-shadow: 20px 20px 5px rgba(0,0,0,0.65);
+}
+
+#googlemap-container{
+	float: right;
+	display: inline-block;
+	height: 300px;
+	width: 350px;
+	padding: 0px;
+	border: #666 10px solid;
+	background-color: #666;
+	border-radius: 8px;
+	box-shadow: 20px 20px 5px rgba(0,0,0,0.65);
+}
+
+#map-subcontainer{
+	background-color: #ccc;
+	border: 8px solid #333;
+	border-radius: 5px;
+	width: 332px;
+	height: 282px;
+}
+
+#map{
+	height: 100%;
+	width: 100%;
+}
+
+.resultsbar-container > div {
+	background-color: #ccc;
+	border: 8px solid #333;
+	border-radius: 5px;
+	width: 449px;
+	height: 282px;
+	overflow-y: scroll;
+}
+
+.result-table{
+	background-color: black;
+	width: 100%;
+	font: bold 12px arial;
+	vertical-align: middle;
+	table-layout: fixed;
+	overflow-x: hidden;
+	border-collapse: collapse
+}
+
+#result-table-header{
+	background-color: orange;
+}
+
+tr{
+	border: solid 2px black;
+}
+
+.result-table-row{
+	cursor: pointer;
+	background-color: #eee;
+	height: 18px;
+}
+
+tr > td{
+	overflow-x: hidden;
+}
+
+.result-stars{
+	display: block;
+	height: 16px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#table-col-suburb{
+	width: 100px;
+}
+
+#table-col-rating{
+	width: 100px;
+}

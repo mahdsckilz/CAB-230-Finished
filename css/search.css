@@ -1,0 +1,128 @@
+#logo-search-container{
+	position: relative;
+	height: 150px;
+	width: 100%;
+	margin-top: -20px;
+}
+
+#logo-search{
+	position: absolute;
+	height: 150px;
+	width: 450px;
+	background-repeat: no-repeat;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#container-x{
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+}
+
+.searchbar-container{
+	margin-top: 60px;
+	height: 56px;
+	width: 467px;
+	font: 16px arial bold;
+	border: #666 10px solid;
+	background-color: #666;
+	border-radius: 8px;
+	box-shadow: 20px 20px 5px rgba(0,0,0,0.65);
+}
+
+.searchbar-container > div {
+	display: inline-block;
+	background-color: #ff9933;
+	border: 8px solid #333;
+	border-radius: 5px;
+}
+
+#search-form{
+}
+
+#searchbar-label{
+	padding: 0px 7px;
+	font: 16px arial;
+	font-weight: bold;
+}
+
+#searchbar-input{
+	width: 284px;
+	height: 38px;
+	background-color: white;
+	padding-left: 5px;
+	font: 16px arial;
+	vertical-align: center;
+	border: 0px;
+}
+
+#searchbar-button{
+	vertical-align: top;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: #ff9933;
+	margin-left: -4px;
+	font-size: 22px;
+	border: 0px;
+}
+
+#rating-container{
+	position: relative;
+	color: white;
+	background: #666;
+	height: 56px;
+	width: 467px;
+	margin-top: 30px;
+	border: #666 solid 10px;
+	box-shadow: 20px 20px 5px rgba(0,0,0,0.65);
+	border-radius: 5px;
+}
+
+#rating-container-inner{
+	width: 451px;
+	height: 40px;
+	border: #333 solid 8px;
+	border-radius: 5px;
+	background-color: #333;
+}
+
+#rating-container-inner div{
+	display: inline-block;
+	color: black;
+	vertical-align: top;
+	text-align: center;
+	line-height: 40px;
+	height: 40px;
+}
+
+#starrating-label{
+	font: bold 16px arial;
+	background-color: #ff9933;
+	width: 110px;
+}
+
+#star-container{
+	padding: 0px 7px;
+	width: 214px;
+	background-color: black;
+}
+
+#starrating-value{
+	font: bold 14px arial;
+	background-color: #ff9933;
+	width: 98px;
+}
+
+.stars{
+	display: inline-block;
+	background-image: url('../images/starempty.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 37px;
+	height: 37px;
+	border: 0px solid black;
+	margin-top: 1px;
+}
