@@ -13,10 +13,16 @@ var lat,
 var starValue = document.getElementById("starValue");
 var hidePost = false;
 
+
+
+// ALL PAGE FUNCTIONS
+
+// Navbar redirect to the Results Page
 function resultsRedirect(){
 	resultsForm.submit();
 }
 
+// Redirect when user posts review
 function postRedirect(){
 	document.getElementById("redirect").submit();
 }
@@ -131,7 +137,8 @@ function showGeolocation(position){
 }
 
 
-// Ensures the value is available on async end
+// Ensures Async Geo functions finish before attempting to display the data
+// addr - The address suburb obtained from reverse geolocation lookup
 function finishGeo(addr){
 	searchbarInput.value = addr;
 }
@@ -156,7 +163,7 @@ function getReverseGeocodingData(lat, lng) {
 }
 
 
-// ITEM FUNCTIONS
+// ITEM PAGE FUNCTIONS
 
 // Shows and hides the create Review box on the Item Page.
 function hideshowItemPost(){
@@ -173,6 +180,7 @@ function hideshowItemPost(){
 
 
 // Changes the style of the ADD REVIEW button depending of whether the user is logged in.
+// enabled - determines whether the user can create a post, set by whether they a logged in.
 function postButtonEnabled(enabled){
 	reviewPost = document.getElementById('review-post');
 	if (enabled == true){
@@ -196,7 +204,8 @@ function showPostLoginError(){
 }
 
 
-// 
+// Sets the Image to display for the reviews withing the item page
+// star - The number of stars the review has
 function reviewStar(star){
 	starObject = document.getElementsByClassName('post-review-stars');
 	document.getElementById('reviewStars').value = star;
@@ -210,6 +219,7 @@ function reviewStar(star){
 	}
 }
 
+// Function for validating a post a user wants to submit. (Min 20 words)
 function reviewPostValidator(){
 	var reviewText = document.getElementById('post-review-body');
 	if( reviewText.value.length > 19){
@@ -222,10 +232,6 @@ function reviewPostValidator(){
 		errorMsg.className = errorMsg.className.replace("show", ""); }, 3000);
 		return false;
 	}
-}
-
-function postRedirect(){
-	document.getElementById("redirect").submit();
 }
 
 
@@ -265,7 +271,7 @@ function createMap(){
 
 
 //Creates Pins on the created map for each park inside the parklist Array.
-//Input: 'map' is the object map the pins will be placed on.
+//map - The object map the pins will be placed on.
 function mapCreatePins(map){
 	var bounds = new google.maps.LatLngBounds();
 	for (i = 0; i < parklist.length; i++){

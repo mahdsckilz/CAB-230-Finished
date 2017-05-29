@@ -1,7 +1,11 @@
-<?php require "./includes/partials/header.inc"; ?>	
-<?php include "./includes/functions.inc";?>
-<?php session_start();
-pageSetup(true, false, true, "Ian Maskell"); ?>
+<!-- HEADER AND PHP STARTUP FUNCTIONS -->
+<?php require "./includes/partials/header.inc";
+	require "./includes/functions.inc";
+	session_start();
+	pageSetup(true, false, true, "Ian Maskell"); 
+?>
+
+<!-- MAIN HTML -->
 <main id='results-main'>
 	<section id='section1'>
 		<?php require "./includes/partials/navbar.inc"; ?>
@@ -20,7 +24,9 @@ pageSetup(true, false, true, "Ian Maskell"); ?>
 							<th id='table-col-address'>Name</th>
 							<th id='table-col-rating'>Rating</th>
 						</tr>
-							<?php populateResults(); ?>
+							<?php populateResults();
+								jsEncodes(); 
+							?>
 					</table>
 				</div>
 			</div>
@@ -32,13 +38,10 @@ pageSetup(true, false, true, "Ian Maskell"); ?>
 		</div>
 	</section>
 	<script type="text/javascript" src="js/script.js"></script>
-<script type='text/javascript'>
-	var parklist = <?php echo json_encode($parklist) ?>;
-	var searchQuery = <?php echo json_encode($location) ?>;
-	var suburbs = <?php echo json_encode($suburbs) ?>;
-</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL5jfMCAYpKVqezrKCIuTjb7LueNhpjgk&callback=createMap"></script>
 </main>
+
+<!-- FOOTER INCLUDE -->
 <?php require "./includes/partials/footer.inc"; ?>
 			
 	

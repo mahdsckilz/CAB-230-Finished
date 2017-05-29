@@ -20,18 +20,22 @@
 
 	$database = new PDO($dsn, $user, $password);
 
-/////////////////////////Navbar Functions////////////////////////////
+/////////////////////////Page Setup Functions////////////////////////////
 
-
+// Function to determine how a page will be setup
+// $searchBool   - Determines whether the Search Button will be displayed
+// $resultsBool  - Determines whether the Results Button will be displayed
+// $regBool      - Determines if the user is logged in (signout) or not (login & Sign Up)
+// $author		 - Shows the author of the page
 function pageSetup($searchBool, $resultsBool, $regBool, $author){
 	global $searchBox, $resultsBox, $regBox, $pageAuthor;
 	$searchBox = $searchBool;
 	$resultsBox = $resultsBool;
 	$regBox = $regBool;
-	pageMeta("$author");
 	$pageAuthor = $author;
 }
 
+// Determines what the Navbar will displayed
 function setNavbar(){
 	global $searchBox, $resultsBox, $location, $starratingValue;
 	if ($searchBox){
@@ -68,9 +72,13 @@ function setNavbar(){
 	
 }
 
+// Destroys the session on SignOut
+function destroySession(){
+	session_destroy();
+}
+
 	
 /////////////////////////SQL FUNCTIONS///////////////////////////////
-
 	
 //Retrieves matching Suburb or Name from the database that matches the users searchQuery
 	function sqlParklist(){
@@ -266,7 +274,6 @@ function setNavbar(){
 		$tempArray = [];
 		usort($parklist, 'resultsArrange');							
 		$searchQuery = strtoupper($location);
-		//sqlConnect('sqlParklist');
 		sqlParklist();
 		
 		for ($i = 0; $i < count($parklist); $i++)
@@ -360,15 +367,7 @@ function setNavbar(){
 				</script>";
 		}
 	}
-	
-	function pageMeta($author){
-		global $pageAuthor;
-		$pageAuthor = $author;
-	}
 
 
-	function destroySession(){
-		session_destroy();
-	}
 	
 ?>

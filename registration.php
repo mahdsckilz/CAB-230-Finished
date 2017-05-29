@@ -1,7 +1,7 @@
 <?php require "./includes/partials/header.inc"; 
 require "./includes/registration.inc";
 include "./includes/functions.inc"; 
-pageSetup(false, false, true, "Cameron Short"); 
+pageSetup(true, false, true, "Cameron Short"); 
 ?>
 <html>
 

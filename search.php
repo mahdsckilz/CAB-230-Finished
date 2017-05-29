@@ -1,19 +1,20 @@
-<?php require "./includes/partials/header.inc"; ?>	
-<?php include "./includes/functions.inc";?>
-<?php
+<!-- HEADER AND PHP STARTUP FUNCTIONS -->
+<?php require "./includes/partials/header.inc";
+	include "./includes/functions.inc";
+
 	session_start();
 	if (isset($_POST['logout']) && $_POST['logout'] == true){
 		session_destroy();
 		session_start();
 	}
-	?>
-<?php sqlCreateDatalist(); ?>
-<?php	pageSetup(false, false, true, "Ian Maskell");
-		jsEncodes();
+	sqlCreateDatalist();
+	pageSetup(false, false, true, "Ian Maskell");
+	jsEncodes();
 ?>
 
+<!-- MAIN HTML -->
 <main id='search-main'>
-	<section id='section1'>
+	<div id='section1'>
 		<?php require "./includes/partials/navbar.inc"; ?>
 		<div id='container-x'>
 			<div id='logo-search-container'>		
@@ -60,6 +61,8 @@
 			</form>
 		</div>
 		<script type="text/javascript" src="js/script.js"></script>	
-	</section>
+	</div>
 </main>
+
+<!-- FOOTER INCLUDE -->
 <?php require "./includes/partials/footer.inc"; ?>

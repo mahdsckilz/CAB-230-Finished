@@ -1,11 +1,12 @@
-<?php require "./includes/partials/header.inc"; ?>	
-<?php include "./includes/functions.inc"; ?>
-<?php session_start();
+<!-- HEADER AND PHP STARTUP FUNCTIONS -->
+<?php require "./includes/partials/header.inc";
+	include "./includes/functions.inc";
+	session_start();
 	pageSetup(true, true, true, "Ian Maskell");
+	itemPage(); 
 ?>
 
-<script type="text/javascript" src="js/script.js"></script>
-<?php itemPage(); ?>
+<!-- MAIN HTML -->
 	<main>
 		<div id='section1'>
 		<?php require "./includes/partials/navbar.inc"; ?>
@@ -41,5 +42,6 @@
 		</script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCL5jfMCAYpKVqezrKCIuTjb7LueNhpjgk&callback=createMap"></script>
 	</main>
-	
+
+<!-- FOOTER INCLUDE -->
 <?php require "./includes/partials/footer.inc"; ?>
