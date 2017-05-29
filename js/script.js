@@ -35,11 +35,14 @@ function postRedirect(){
 // OUTPUT: Returns true if query matches, false if query doesn't match.
 function searchQueryValidate(){
 	for (var i = 0; i < suburbs.length; i++){
+
+		suburbs[i] = suburbs[i].replace("&#39;", "'");
 		if (searchbarInput.value.toUpperCase() == suburbs[i].toUpperCase()){
 			return true;
 		}
 	}	
 	for (var i = 0; i < parkNames.length; i++){
+			parkNames[i] = parkNames[i].replace("&#39;", "'");
 		if (searchbarInput.value.toUpperCase() == parkNames[i].toUpperCase()){
 			return true;
 		}

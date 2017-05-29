@@ -278,6 +278,7 @@ function destroySession(){
 		
 		for ($i = 0; $i < count($parklist); $i++)
 		{
+			$searchQuery = str_replace("'", "&#39", $searchQuery);
 			if ($searchQuery == ($parklist[$i]['Name']  || $searchQuery == $parklist[$i]['Suburb']) && $parklist[$i]['Stars'] >= $starratingValue){
 				array_push($tempArray, $parklist[$i]);
 			}
