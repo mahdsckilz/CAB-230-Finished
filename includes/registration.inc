@@ -6,9 +6,21 @@ $password   = "";
 $dbname     = "recit";
 $conn       = new PDO('mysql:host=' . $servername . ';dbname=' . $dbname, $username, $password);
 
+
+$stmt = $conn->prepare("SELECT userN FROM users");
+$stmt->execute();
+$count = $stmt->rowCount();
+$data  = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+if ($count){
+    print $count;
+    $users = $data;
+    $jsusers = json_encode($users);        
+    echo "<script type='text/javascript'>
+        var users = $jsusers;
+    </script>";
+}
+
 if (isset($_POST['submitL']) && !empty($_POST['username1']) && !empty($_POST['password1'])) {
-    
-    
     $username = $_POST['username1'];
     $password = $_POST['password1'];
     $stmt     = $conn->prepare("SELECT userN FROM users WHERE userN=:username "); // AND passW=:hash_password
@@ -31,7 +43,6 @@ if (isset($_POST['submitL']) && !empty($_POST['username1']) && !empty($_POST['pa
             header('Location: search.php');
         }
     }
-    
 }
 
 if (isset($_POST['submit2'])) {
