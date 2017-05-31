@@ -12,6 +12,8 @@ var signin = document.getElementById("signinSelect");
 // Get the modal
 var modalS = document.getElementById('signupModal');
 
+var users;
+var userExists;
 // Open and switch between modals
 login.onclick = function() {
 	login.style.backgroundColor = "#ff8c19";
@@ -30,10 +32,11 @@ signin.onclick = function() {
 
 ////----LOGIN-----------------------------------------------------------------------
 var validateLogin = function() {
+	userExists = false;
 	var returnvar = 0;
 	if(checkUsername1() === 0) returnvar++;
 	if (checkPassword1() === 0) returnvar++;
-	if(returnvar === 2) return true;
+	if(returnvar === 2 && userExists) return true;
 	return false;
 }
 
@@ -45,7 +48,18 @@ function checkUsername1(){
 		str.classList.add('placeholderred');
 		val = 1;
 	} else{
-		str.classList.remove('placeholderred');
+		for(var i=0; i < users.length; i++){
+			console.log("input: " + str + "db: " + users[i]);
+			if (str.value == users[i]) userExists = true;
+		}
+		if (userExists !== true){
+			str.placeholder = "User Does Not Exist";
+			str.classList.add('placeholderred');
+			str.value = "";
+		} else {
+			str.placeholder = "Username";
+			str.classList.remove('placeholderred');
+		}
 	}
 	return val;
 }
@@ -57,19 +71,23 @@ function checkPassword1(){
 		str.placeholder = "Password Empty";
 		str.classList.add('placeholderred');
 		val = 1;
+	} else{
+		str.classList.remove('placeholderred');
 	}
 	return val;
 }
 
 ////----SIGNIN-----------------------------------------------------------------------
 var validateSignin = function() {
+	userExists = false;
 	var returnvar = 0;
 	if(checkFName() === 0) returnvar++;
 	if(checkLName() === 0) returnvar++;
 	if(checkUsername2() === 0) returnvar++;
 	if(checkPassword2() === 0) returnvar++;
 	if (checkConfPassword() === 0) returnvar++;
-	if(returnvar === 5) return true;
+	
+	if(returnvar === 5 && !userExists) return true;
 	return false;
 }
 
@@ -108,7 +126,18 @@ function checkUsername2(){
 		str.classList.add('placeholderred');
 		val = 1;
 	} else{
-		str.classList.remove('placeholderred');
+		for(var i=0; i < users.length; i++){
+			console.log("input: " + str + "db: " + users[i]);
+			if (str.value == users[i]) userExists = true;
+		}
+		if (userExists){
+			str.placeholder = "Username Already Exists";
+			str.classList.add('placeholderred');
+			str.value = "";
+		} else {
+			str.placeholder = "Username";
+			str.classList.remove('placeholderred');
+		}
 	}
 	return val;
 }
