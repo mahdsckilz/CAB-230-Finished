@@ -12,7 +12,6 @@ $stmt->execute();
 $count = $stmt->rowCount();
 $data  = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 if ($count){
-    print $count;
     $users = $data;
     $jsusers = json_encode($users);        
     echo "<script type='text/javascript'>
